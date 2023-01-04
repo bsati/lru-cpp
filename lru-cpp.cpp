@@ -3,5 +3,7 @@
 
 int main()
 {
+	LRUCache<int, int> cache {2};
+
 	return 0;
 }
