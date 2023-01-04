@@ -13,7 +13,13 @@ public:
 	}
 
 	std::optional<const V&> Get(K key) {
-		
+		auto it = element_map.find(key);
+		if (it == element_map.end()) {
+			return {};
+		}
+
+		elements.splice(elements.begin(), elements, it->second);
+		return { it->second->second };
 	}
 
 	void Put(K key, V value) {
